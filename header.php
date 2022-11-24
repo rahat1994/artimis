@@ -56,32 +56,15 @@
                <div class="menu-area">
                   <div class="limit-box">
                      <nav class="main-menu">
-                        <ul class="menu-area-main">
-                           <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
-                           <li class="active">
-                              <a href="index.html">Home</a>
-                           </li>
-                           <li>
-                              <a href="about.html">About</a>
-                           </li>
-                           <li>
-                              <a href="marketing.html">Marketing</a>
-                           </li>
-                           <li>
-                              <a href="blog.html">Blog</a>
-                           </li>
-                           <li>
-                              <a href="contact.html">Contact us</a>
-                           </li>
-                           <li>
-                              <a href="#">Login</a>
-                           </li>
-                           <li>
-                              <a href="#">Register</a>
-                           </li>
-                           <li>
-                              <a href="#"><img src="images/search_icon.png" alt="#" /></a>
-                           </li>
+                        <ul class="menu-area-main"></ul>
+                           <?php wp_nav_menu(
+                                 array( 
+                                    'theme_location' => 'header-menu', 
+                                    'walker' => new ArtimisMenuWalker()
+                                    ) ,
+
+                              ); 
+                           ?>
                         </ul>
                      </nav>
                   </div>
@@ -102,10 +85,10 @@
                   <!-- The slideshow -->
                   <div class="carousel-inner">
                      <div class="carousel-item active">
-                        <img src="images/slider_1.png" alt="#" />
+                        <img src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php get_bloginfo( 'name' )?>" />
                      </div>
                      <div class="carousel-item">
-                        <img src="images/slider_1.png" alt="#" />
+                        <img src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php get_bloginfo( 'name' )?>" />
                      </div>
                   </div>
                   <!-- Left and right controls -->
